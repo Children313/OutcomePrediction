@@ -10,11 +10,11 @@ private String assisting_ability;
         this.speed=6.0;
         this.height=190.0;
         this.shooting_ability="outstanding";
-        this.shooting_ability="outstanding";
+        this.breakthrough_ability="outstanding";
         this.assisting_ability="outstanding";
 
     }
-    public BasketballPlayer(String name, float speed, float height, String shooting_ability, String breakthrough_ability, String assisting_ability) {
+    public BasketballPlayer(String name, Double speed, Double height, String shooting_ability, String breakthrough_ability, String assisting_ability) {
         this.name = name;
         this.speed = speed;
         this.height = height;
@@ -69,5 +69,17 @@ private String assisting_ability;
 
     public void setAssisting_ability(String assisting_ability) {
         this.assisting_ability = assisting_ability;
+    }
+
+    @Override
+    public String toString() {
+        return "BasketballPlayer{" +
+                "name='" + name + '\'' +
+                ", speed=" + speed +
+                ", height=" + height +
+                ", shooting_ability='" + shooting_ability + '\'' +
+                ", breakthrough_ability='" + breakthrough_ability + '\'' +
+                ", assisting_ability='" + assisting_ability + '\'' +
+                '}';
     }
 }
