@@ -5,9 +5,10 @@ public class Choice {
 
         public static void main(String[] args) {
             System.out.println("Player evaluation");
+            for(int a=0;a<3;a++){
             Choice player = new Choice();
             player.addInformation();
-            player.printInformation();
+            player.printInformation();}
             //driver.checkBestVehicle();
         } // End of Main
 
@@ -33,10 +34,11 @@ public class Choice {
             System.out.println(player);
         }
 
-        //public void checkBestVehicle() {
-            //System.out.print("Enter Number of Passengers : ");
-            //int numPassengers = input.nextInt();
-            //System.out.println("Passengers Entered : " + numPassengers);
+
+        /*public void checkBestVehicle() {
+            System.out.print("Enter Number of Passengers : ");
+            int numPassengers = input.nextInt();
+            System.out.println("Passengers Entered : " + numPassengers);*/
 
             //if(numPassengers >= 1 && numPassengers <= 2)
                 //System.out.println("EBike is Best");
