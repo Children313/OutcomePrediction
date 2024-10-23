@@ -9,7 +9,7 @@ public class Choice {
             Choice player = new Choice();
             player.addInformation();
             player.printInformation();}
-            //driver.checkBestVehicle();
+
         } // End of Main
 
         public void addInformation() {
@@ -18,13 +18,13 @@ public class Choice {
             System.out.print("Enter Speed(dribbling across the court)m/s : ");
             Double playerSpeed= input.nextDouble();
             if (playerSpeed>10||playerSpeed<0){
-                System.out.println("Please enter reasonable speed again which should be between 0 and 10");
+                System.out.println("Please enter reasonable speed again which should be between 0 and 10 m/s");
                 playerSpeed = input.nextDouble();
             }
             System.out.print("Enter Height(cm) : ");
             Double playerHeight=input.nextDouble();
             if(playerHeight>300||playerHeight<100){
-                System.out.println("Please enter reasonable height again which should be between 100 and 300");
+                System.out.println("Please enter reasonable height again which should be between 100 and 300 cm");
                 playerHeight= input.nextDouble();
             }
             System.out.print("Enter Shooting_ability(outstanding,excellent,good,normal) : ");
@@ -40,23 +40,34 @@ public class Choice {
 
        public void printInformation() {
             System.out.println(player);
+            float playerscore = assignment(player.getShooting_ability(), player.getBreakthrough_ability(), player.getAssisting_ability()   );
+            System.out.println("The score of the player is "+playerscore);
         }
+       public float assignment(String shootingAbility,String breakthroughAbility,String assistingAbility){
+            String[]abilities=new String[3];
+            abilities[0]=shootingAbility;
+            abilities[1]=breakthroughAbility;
+            abilities[2]=assistingAbility;
+            int[]score=new int[3];
+            for(int i=0;i<3;i++){
+            if (abilities[i]=="outstanding"){
+                 score[i]=100;
+            }
+            else if(abilities[i]=="excellent"){
+                 score[i]=75;
+            }
+            else if(abilities[i]=="good"){
+                 score[i]=50;
+            }
+            else if(abilities[i]=="normal"){
+                 score[i]=25;
+            }
+
+            }
+            return (score[0]+score[1]+score[2])/3;
+       }
 
 
-        /*public void checkBestVehicle() {
-            System.out.print("Enter Number of Passengers : ");
-            int numPassengers = input.nextInt();
-            System.out.println("Passengers Entered : " + numPassengers);*/
-
-            //if(numPassengers >= 1 && numPassengers <= 2)
-                //System.out.println("EBike is Best");
-            //else if(numPassengers >= 3 && numPassengers <= 5)
-               // System.out.println("Car is Best : ");
-            //else if(numPassengers >= 6 && numPassengers <= 20)
-                //System.out.println("Bus is Best : ");
-            //else
-                //System.out.println("Sorry, no Vehicle Available");
-       // } // End of checkBestVehicle method
 
 
 }
