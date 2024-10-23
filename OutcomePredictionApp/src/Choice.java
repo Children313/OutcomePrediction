@@ -17,8 +17,16 @@ public class Choice {
             String playerName = input.nextLine();
             System.out.print("Enter Speed(dribbling across the court)m/s : ");
             Double playerSpeed= input.nextDouble();
+            if (playerSpeed>10||playerSpeed<0){
+                System.out.println("Please enter reasonable speed again which should be between 0 and 10");
+                playerSpeed = input.nextDouble();
+            }
             System.out.print("Enter Height(cm) : ");
             Double playerHeight=input.nextDouble();
+            if(playerHeight>300||playerHeight<100){
+                System.out.println("Please enter reasonable height again which should be between 100 and 300");
+                playerHeight= input.nextDouble();
+            }
             System.out.print("Enter Shooting_ability(outstanding,excellent,good,normal) : ");
             String playerShooting_ability=input.next();
             System.out.print("Enter Breakthrough_ability(outstanding,excellent,good,normal) :");

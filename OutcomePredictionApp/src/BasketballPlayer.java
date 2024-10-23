@@ -1,26 +1,19 @@
-public class BasketballPlayer {
-private String name;
-private double speed;//运球跨场速度
-private double height;
-private String shooting_ability;//outstanding,excellent,good,normal
-private String breakthrough_ability;
-private String assisting_ability;
-    public BasketballPlayer(){
-        this.name="Nick";
-        this.speed=6.0;
-        this.height=190.0;
-        this.shooting_ability="outstanding";
-        this.breakthrough_ability="outstanding";
-        this.assisting_ability="outstanding";
 
-    }
+public class BasketballPlayer {
+private String name="Nick";
+private double speed=6.0;//运球跨场速度
+private double height=190.0;
+private String shooting_ability="outstanding";//outstanding,excellent,good,normal
+private String breakthrough_ability="outstanding";
+private String assisting_ability="outstanding";
+
     public BasketballPlayer(String name, Double speed, Double height, String shooting_ability, String breakthrough_ability, String assisting_ability) {
-        this.name = name;
-        this.speed = speed;
-        this.height = height;
-        this.shooting_ability = shooting_ability;
-        this.breakthrough_ability = breakthrough_ability;
-        this.assisting_ability = assisting_ability;
+        setName(name);
+        setSpeed(speed);
+        setHeight(height);
+        setShooting_ability(shooting_ability);
+        setBreakthrough_ability(breakthrough_ability);
+        setAssisting_ability(assisting_ability);
     }
 
     public String getName() {
@@ -36,7 +29,11 @@ private String assisting_ability;
     }
 
     public void setSpeed(double speed) {
+
         this.speed = speed;
+
+
+
     }
 
     public double getHeight() {
@@ -44,7 +41,9 @@ private String assisting_ability;
     }
 
     public void setHeight(double height) {
+
         this.height = height;
+
     }
 
     public String getShooting_ability() {
