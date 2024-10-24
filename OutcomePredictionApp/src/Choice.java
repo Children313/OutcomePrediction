@@ -49,19 +49,16 @@ public class Choice {
             abilities[1]=breakthroughAbility;
             abilities[2]=assistingAbility;
             int[]score=new int[3];
-            for(int i=0;i<3;i++){
-            if (abilities[i]=="outstanding"){
-                 score[i]=100;
-            }
-            else if(abilities[i]=="excellent"){
-                 score[i]=75;
-            }
-            else if(abilities[i]=="good"){
-                 score[i]=50;
-            }
-            else if(abilities[i]=="normal"){
-                 score[i]=25;
-            }
+           for (int i = 0; i < 3; i++) {
+               if (abilities[i].equals("outstanding") ) {
+                   score[i] = 100;
+               } else if (abilities[i] .equals("excellent")) {
+                   score[i] = 75;
+               } else if (abilities[i] .equals("good")) {
+                   score[i] = 50;
+               } else if (abilities[i] .equals("normal")) {
+                   score[i] = 25;
+               }
 
             }
             return (score[0]+score[1]+score[2])/3;
