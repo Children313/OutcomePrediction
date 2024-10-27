@@ -12,19 +12,36 @@ public class Choice {
     }
 
         public  static void assessment() {
-            System.out.println("Player evaluation");
-            float arr[]=new float[3];
+            System.out.println("The first team's player evaluation");
+            float arr1[]=new float[3];
             for(int a=0;a<3;a++){
             Choice player = new Choice();
             player.addInformation();
             player.printInformation();
-            arr[a]=mark.getScore();}
-            float totalscore=arr[0]+arr[1]+arr[2];
-                System.out.println("The team's totalscore is "+totalscore);
-
-
+            arr1[a]=mark.getScore();}
+            float totalscore1=arr1[0]+arr1[1]+arr1[2];
+                System.out.println("The first team's totalscore is "+totalscore1);
+            System.out.println("The second team's player evaluation");
+            float arr2[]=new float[3];
+            for(int a=0;a<3;a++){
+                Choice player = new Choice();
+                player.addInformation();
+                player.printInformation();
+                arr2[a]=mark.getScore();}
+            float totalscore2=arr2[0]+arr2[1]+arr2[2];
+            System.out.println("The second team's totalscore is "+totalscore2);
+            if (totalscore1<totalscore2){
+                System.out.println("The first team is more likely to win");
+            }
+            else if(totalscore1==totalscore2){
+                System.out.println("The two teams are equally likely to win");
+            }
+            else{
+                System.out.println("The second team is more likely to win");
+            }
 
         }
+
 
 
         public void addInformation() {
