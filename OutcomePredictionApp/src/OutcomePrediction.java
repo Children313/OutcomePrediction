@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
-
-
-public class Choice {
+public class OutcomePrediction {
         static BasketballPlayer player;
         static BasketballPlayer mark;
         Scanner input = new Scanner(System.in);
@@ -12,32 +10,32 @@ public class Choice {
     }
 
         public  static void assessment() {
-            System.out.println("The first team's player evaluation");
+            System.out.println("\033[36mThe first team's player evaluation\033[0m");
             float arr1[]=new float[3];
             for(int a=0;a<3;a++){
-            Choice player = new Choice();
+            OutcomePrediction player = new OutcomePrediction();
             player.addInformation();
             player.printInformation();
             arr1[a]=mark.getScore();}
             float totalscore1=arr1[0]+arr1[1]+arr1[2];
-                System.out.println("The first team's totalscore is "+totalscore1);
-            System.out.println("The second team's player evaluation");
+            System.out.println("\033[31mThe first team's totalscore is \033[0m"+totalscore1);
+            System.out.println("\033[36mThe second team's player evaluation\033[0m");
             float arr2[]=new float[3];
             for(int a=0;a<3;a++){
-                Choice player = new Choice();
+                OutcomePrediction player = new OutcomePrediction();
                 player.addInformation();
                 player.printInformation();
                 arr2[a]=mark.getScore();}
             float totalscore2=arr2[0]+arr2[1]+arr2[2];
-            System.out.println("The second team's totalscore is "+totalscore2);
+            System.out.println("\033[36mThe second team's totalscore is\033[0m "+totalscore2);
             if (totalscore1<totalscore2){
-                System.out.println("The first team is more likely to win");
+                System.out.println("\033[41mThe first team is more likely to win\033[0m");
             }
             else if(totalscore1==totalscore2){
-                System.out.println("The two teams are equally likely to win");
+                System.out.println("\033[41mThe two teams are equally likely to win\033[0m");
             }
             else{
-                System.out.println("The second team is more likely to win");
+                System.out.println("\033[41mThe second team is more likely to win\033[0m");
             }
 
         }
@@ -68,7 +66,7 @@ public class Choice {
 
             player = new BasketballPlayer(playerName,playerSpeed,playerHeight,playerShooting_ability,playerBreakthrough_ability,playerAssisting_ability) ;
             float playerscore = assignment(player.getShooting_ability(), player.getBreakthrough_ability(), player.getAssisting_ability()   );
-            System.out.println("The score of the player is "+playerscore);
+            System.out.println("\033[33mThe score of the player is\033[0m "+playerscore);
             mark=new BasketballPlayer(playerscore);
         }
 
