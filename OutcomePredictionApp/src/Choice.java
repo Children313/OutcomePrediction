@@ -1,16 +1,31 @@
 import java.util.Scanner;
+
+
+
 public class Choice {
-        BasketballPlayer player;
+        static BasketballPlayer player;
+        static BasketballPlayer mark;
         Scanner input = new Scanner(System.in);
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
+        assessment();
+    }
+
+        public  static void assessment() {
             System.out.println("Player evaluation");
+            float arr[]=new float[3];
             for(int a=0;a<3;a++){
             Choice player = new Choice();
             player.addInformation();
-            player.printInformation();}
+            player.printInformation();
+            arr[a]=mark.getScore();}
+            float totalscore=arr[0]+arr[1]+arr[2];
+                System.out.println("The team's totalscore is "+totalscore);
 
-        } // End of Main
+
+
+        }
+
 
         public void addInformation() {
             System.out.print("Enter Name : ");
@@ -35,13 +50,14 @@ public class Choice {
             String playerAssisting_ability=input.next();
 
             player = new BasketballPlayer(playerName,playerSpeed,playerHeight,playerShooting_ability,playerBreakthrough_ability,playerAssisting_ability) ;
-
+            float playerscore = assignment(player.getShooting_ability(), player.getBreakthrough_ability(), player.getAssisting_ability()   );
+            System.out.println("The score of the player is "+playerscore);
+            mark=new BasketballPlayer(playerscore);
         }
 
        public void printInformation() {
             System.out.println(player);
-            float playerscore = assignment(player.getShooting_ability(), player.getBreakthrough_ability(), player.getAssisting_ability()   );
-            System.out.println("The score of the player is "+playerscore);
+
         }
        public float assignment(String shootingAbility,String breakthroughAbility,String assistingAbility){
             String[]abilities=new String[3];
@@ -49,7 +65,7 @@ public class Choice {
             abilities[1]=breakthroughAbility;
             abilities[2]=assistingAbility;
             int[]score=new int[3];
-           for (int i = 0; i < 3; i++) {
+           for (int i = 0; i < abilities.length; i++) {
                if (abilities[i].equals("outstanding") ) {
                    score[i] = 100;
                } else if (abilities[i] .equals("excellent")) {

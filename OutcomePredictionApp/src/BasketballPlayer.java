@@ -6,6 +6,7 @@ private double height=190.0;
 private String shooting_ability="outstanding";//outstanding,excellent,good,normal
 private String breakthrough_ability="outstanding";
 private String assisting_ability="outstanding";
+private float score;
 
     public BasketballPlayer(String name, Double speed, Double height, String shooting_ability, String breakthrough_ability, String assisting_ability) {
         setName(name);
@@ -16,6 +17,17 @@ private String assisting_ability="outstanding";
         setAssisting_ability(assisting_ability);
     }
 
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public BasketballPlayer(float score){
+        this.score=score;
+    }
     public String getName() {
         return name;
     }
