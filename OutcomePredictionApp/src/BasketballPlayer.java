@@ -1,3 +1,4 @@
+import java.util.concurrent.TimeUnit;
 
 public class BasketballPlayer {
 private String name="Nick";
@@ -7,6 +8,11 @@ private String shooting_ability="outstanding";//outstanding,excellent,good,norma
 private String breakthrough_ability="outstanding";
 private String assisting_ability="outstanding";
 private float score;
+private float[] team1PlayerScore;
+private float[] team2PlayerScore;
+private float team1totalscore;
+private float team2totalscore;
+
 
     public BasketballPlayer(String name, Double speed, Double height, String shooting_ability, String breakthrough_ability, String assisting_ability) {
         setName(name);
@@ -15,6 +21,9 @@ private float score;
         setShooting_ability(shooting_ability);
         setBreakthrough_ability(breakthrough_ability);
         setAssisting_ability(assisting_ability);
+    }
+    public BasketballPlayer(){
+
     }
 
     public float getScore() {
@@ -46,6 +55,13 @@ private float score;
 
 
 
+    }
+    public float[] getTeam1PlayerScore() {
+        return team1PlayerScore;
+    }
+
+    public void setTeam1PlayerScore(float[] team1PlayerScore) {
+        this.team1PlayerScore = team1PlayerScore;
     }
 
     public double getHeight() {
@@ -81,6 +97,33 @@ private float score;
     public void setAssisting_ability(String assisting_ability) {
         this.assisting_ability = assisting_ability;
     }
+    public float[] getTeam2PlayerScore() {
+        return team2PlayerScore;
+    }
+
+    public void setTeam2PlayerScore(float[] team2PlayerScore) {
+        this.team2PlayerScore = team2PlayerScore;
+    }
+    public float getTeam1totalscore() {
+        return team1totalscore;
+    }
+
+    public void setTeam1totalscore(float team1totalscore) {
+        this.team1totalscore = team1totalscore;
+    }
+
+    public float getTeam2totalscore() {
+        return team2totalscore;
+    }
+
+    public void setTeam2totalscore(float team2totalscore) {
+        this.team2totalscore = team2totalscore;
+    }
+
+
+
+
+
 
     @Override
     public String toString() {
@@ -92,5 +135,24 @@ private float score;
                 ", breakthrough_ability='" + breakthrough_ability + '\'' +
                 ", assisting_ability='" + assisting_ability + '\'' +
                 '}';
+    }
+    public static void setup() {
+        System.out.println("///////////////////////////////////////");
+        System.out.println("\033[43mOutcome Analysis\033[0m");
+        System.out.println("///////////////////////////////////////");
+        System.out.println();
+        System.out.println();
+        System.out.print("Please wait while the system loads...");
+        try {
+            System.out.print("...");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.print("...");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.print("...");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("...");
+            System.out.println();
+        }
+        catch(Exception e) {}
     }
 }

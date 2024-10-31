@@ -1,43 +1,99 @@
 import java.util.Scanner;
 
-public class OutcomePrediction {
+public class OutcomeAnalysis {
         static BasketballPlayer player;
         static BasketballPlayer mark;
+        static BasketballPlayer team1PersonalScore;
+        static BasketballPlayer team2PersonalScore;
         Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        assessment();
+        new OutcomeAnalysis(1);
+
     }
+    public OutcomeAnalysis(int a){
+        assessment();
+        runMenu();
+    }
+    public OutcomeAnalysis(){
+
+    }
+        private int mainMenu(){
+            System.out.println("""
+                    OutcomeAnalysis Menu
+                    --------------------
+                    1)Team win probability prediction
+                    2)Dislay all the players' scores
+                    0)Exit
+                    ==>>""");
+            int option=input.nextInt();
+            return option;
+        }
+        private void runMenu(){
+              int option=mainMenu();
+              while(option!=0){
+                  switch(option){
+                      case 1->prediction();
+                      case 2->displayPersonalScore();
+                      default-> System.out.println("Invalid option entered:"+option);
+                  }
+                  System.out.println("\nPress enter key to continue...");
+                  input.nextLine();
+                  input.nextLine();
+                  option=mainMenu();
+              }
+            System.out.println("Exiting...bye");
+            System.exit(0);
+        }
 
         public  static void assessment() {
+            player.setup();
             System.out.println("\033[36mThe first team's player evaluation\033[0m");
+            team1PersonalScore =new BasketballPlayer();
             float arr1[]=new float[3];
             for(int a=0;a<3;a++){
-            OutcomePrediction player = new OutcomePrediction();
+            OutcomeAnalysis player = new OutcomeAnalysis();
             player.addInformation();
             player.printInformation();
-            arr1[a]=mark.getScore();}
+            arr1[a]=mark.getScore();
+            }
+            team1PersonalScore.setTeam1PlayerScore(arr1);
             float totalscore1=arr1[0]+arr1[1]+arr1[2];
+            player.setTeam1totalscore(totalscore1);
             System.out.println("\033[31mThe first team's totalscore is \033[0m"+totalscore1);
             System.out.println("\033[36mThe second team's player evaluation\033[0m");
+            team2PersonalScore =new BasketballPlayer();
             float arr2[]=new float[3];
             for(int a=0;a<3;a++){
-                OutcomePrediction player = new OutcomePrediction();
+                OutcomeAnalysis player = new OutcomeAnalysis();
                 player.addInformation();
                 player.printInformation();
                 arr2[a]=mark.getScore();}
+            team2PersonalScore.setTeam2PlayerScore(arr2);
             float totalscore2=arr2[0]+arr2[1]+arr2[2];
+            player.setTeam2totalscore(totalscore2);
             System.out.println("\033[36mThe second team's totalscore is\033[0m "+totalscore2);
-            if (totalscore1<totalscore2){
+
+
+        }
+        public void prediction(){
+            if (player.getTeam1totalscore()<player.getTeam2totalscore()){
                 System.out.println("\033[41mThe first team is more likely to win\033[0m");
             }
-            else if(totalscore1==totalscore2){
+            else if(player.getTeam1totalscore()==player.getTeam2totalscore()){
                 System.out.println("\033[41mThe two teams are equally likely to win\033[0m");
             }
             else{
                 System.out.println("\033[41mThe second team is more likely to win\033[0m");
             }
+        }
 
+        public void displayPersonalScore(){
+            for(int i=0;i<3;i++){
+                System.out.println(team1PersonalScore.getTeam1PlayerScore()[i]);}
+            for(int i=0;i<3;i++){
+                System.out.println(team2PersonalScore.getTeam2PlayerScore()[i]);
+            }
         }
 
 
@@ -94,8 +150,5 @@ public class OutcomePrediction {
             }
             return (score[0]+score[1]+score[2])/3;
        }
-
-
-
 
 }
