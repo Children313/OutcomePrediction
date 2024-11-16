@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class OutcomeAnalysis {
@@ -8,6 +9,9 @@ public class OutcomeAnalysis {
         Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        File file=new File("C:\\Users\\鹿鸣\\Documents\\GitHub\\OutcomePrediction\\OutcomePredictionApp\\src\\Introduction of the whole OutcomeAnalysis team project");
+        System.out.println(file.getName());
+        System.out.println("You can see it here " + file.getAbsolutePath());
         new OutcomeAnalysis(1);
 
     }
@@ -24,6 +28,7 @@ public class OutcomeAnalysis {
                     --------------------
                     1)Team win probability prediction
                     2)Dislay all the players' scores
+                    3)Find the highest score of all the players
                     0)Exit
                     ==>>""");
             int option=input.nextInt();
@@ -35,6 +40,7 @@ public class OutcomeAnalysis {
                   switch(option){
                       case 1->prediction();
                       case 2->displayPersonalScore();
+                      case 3->findHighestScore();
                       default-> System.out.println("Invalid option entered:"+option);
                   }
                   System.out.println("\nPress enter key to continue...");
@@ -49,7 +55,7 @@ public class OutcomeAnalysis {
         public  static void assessment() {
             player.setup();
             System.out.println("\033[36mThe first team's player evaluation\033[0m");
-            team1PersonalScore =new BasketballPlayer();
+            team1PersonalScore= new BasketballPlayer();
             float arr1[]=new float[3];
             for(int a=0;a<3;a++){
             OutcomeAnalysis player = new OutcomeAnalysis();
@@ -72,6 +78,8 @@ public class OutcomeAnalysis {
             team2PersonalScore.setTeam2PlayerScore(arr2);
             float totalscore2=arr2[0]+arr2[1]+arr2[2];
             player.setTeam2totalscore(totalscore2);
+            float arr3[]=new float[]{arr1[0],arr1[1],arr1[2],arr2[0],arr2[1],arr2[2]};
+            player.setTotalPlayerScore(arr3);
             System.out.println("\033[36mThe second team's totalscore is\033[0m "+totalscore2);
 
 
@@ -96,7 +104,19 @@ public class OutcomeAnalysis {
             }
         }
 
-
+        public float HighestScore(){
+        float[] allScore=player.getTotalPlayerScore();
+        float highestScore = allScore[0];
+        for (int i=1;i<=5;i++){
+            if(allScore[i]>highestScore)
+                highestScore=allScore[i];
+        }
+        return highestScore;
+    }
+        public void findHighestScore(){
+            float highestscore = HighestScore();
+            System.out.println("\033[42mThe highest score of all the player is\033[0m "+ highestscore);
+        }
 
         public void addInformation() {
             System.out.print("Enter Name : ");
@@ -151,4 +171,8 @@ public class OutcomeAnalysis {
             return (score[0]+score[1]+score[2])/3;
        }
 
-}
+
+
+    }
+
+

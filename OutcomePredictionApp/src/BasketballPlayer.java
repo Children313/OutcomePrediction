@@ -10,6 +10,7 @@ private String assisting_ability="outstanding";
 private float score;
 private float[] team1PlayerScore;
 private float[] team2PlayerScore;
+private float[] totalPlayerScore;
 private float team1totalscore;
 private float team2totalscore;
 
@@ -119,7 +120,13 @@ private float team2totalscore;
     public void setTeam2totalscore(float team2totalscore) {
         this.team2totalscore = team2totalscore;
     }
+    public float[] getTotalPlayerScore() {
+        return totalPlayerScore;
+    }
 
+    public void setTotalPlayerScore(float[] totalPlayerScore) {
+        this.totalPlayerScore = totalPlayerScore;
+    }
 
 
 
