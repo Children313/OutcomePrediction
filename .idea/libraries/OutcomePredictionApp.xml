@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OutcomePredictionApp">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/OutcomePredictionApp/out/artifacts/OutcomePredictionApp_jar/OutcomePredictionApp.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

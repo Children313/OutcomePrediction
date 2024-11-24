@@ -27,8 +27,9 @@ public class OutcomeAnalysis {
                     OutcomeAnalysis Menu
                     --------------------
                     1)Team win probability prediction
-                    2)Dislay all the players' scores
+                    2)Dislay all the players' scores from low to high
                     3)Find the highest score of all the players
+                    4)Tell the number of players who got the score above 60
                     0)Exit
                     ==>>""");
             int option=input.nextInt();
@@ -41,6 +42,7 @@ public class OutcomeAnalysis {
                       case 1->prediction();
                       case 2->displayPersonalScore();
                       case 3->findHighestScore();
+                      case 4->Tellnumbers();
                       default-> System.out.println("Invalid option entered:"+option);
                   }
                   System.out.println("\nPress enter key to continue...");
@@ -97,11 +99,18 @@ public class OutcomeAnalysis {
         }
 
         public void displayPersonalScore(){
-            for(int i=0;i<3;i++){
-                System.out.println(team1PersonalScore.getTeam1PlayerScore()[i]);}
-            for(int i=0;i<3;i++){
-                System.out.println(team2PersonalScore.getTeam2PlayerScore()[i]);
+        float arr4[]=player.getTotalPlayerScore();
+        for (int i=0;i<arr4.length;i++){
+            for(int j=i+1;j<arr4.length;j++){
+                if(arr4[i]>arr4[j]){
+                    float t =arr4[i];
+                    arr4[i]=arr4[j];
+                    arr4[j]=t;
+                }
             }
+        }
+         for (int k=0;k<arr4.length;k++){
+            System.out.println(arr4[k]);}
         }
 
         public float HighestScore(){
@@ -171,7 +180,17 @@ public class OutcomeAnalysis {
             return (score[0]+score[1]+score[2])/3;
        }
 
+        public void Tellnumbers(){
+        float[] allScore=player.getTotalPlayerScore();
+        int a=0;
+        for (int i=1;i<allScore.length;i++){
+            if(allScore[i]>60){
+                a++;
+            }
+        }
+        System.out.println("\033[43mThe number of players who got the score above 60 is \033[0m"+a);
 
+    }
 
     }
 
