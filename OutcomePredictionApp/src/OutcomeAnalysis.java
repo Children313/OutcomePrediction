@@ -1,4 +1,6 @@
 import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class OutcomeAnalysis {
@@ -16,6 +18,7 @@ public class OutcomeAnalysis {
 
     }
     public OutcomeAnalysis(int a){
+        displayTime();
         assessment();
         runMenu();
     }
@@ -42,7 +45,7 @@ public class OutcomeAnalysis {
                       case 1->prediction();
                       case 2->displayPersonalScore();
                       case 3->findHighestScore();
-                      case 4->Tellnumbers();
+                      case 4-> tellNumbers();
                       default-> System.out.println("Invalid option entered:"+option);
                   }
                   System.out.println("\nPress enter key to continue...");
@@ -113,7 +116,7 @@ public class OutcomeAnalysis {
             System.out.println(arr4[k]);}
         }
 
-        public float HighestScore(){
+        public float highestScore(){
         float[] allScore=player.getTotalPlayerScore();
         float highestScore = allScore[0];
         for (int i=1;i<=5;i++){
@@ -123,7 +126,7 @@ public class OutcomeAnalysis {
         return highestScore;
     }
         public void findHighestScore(){
-            float highestscore = HighestScore();
+            float highestscore = highestScore();
             System.out.println("\033[42mThe highest score of all the player is\033[0m "+ highestscore);
         }
 
@@ -180,7 +183,7 @@ public class OutcomeAnalysis {
             return (score[0]+score[1]+score[2])/3;
        }
 
-        public void Tellnumbers(){
+        public void tellNumbers(){
         float[] allScore=player.getTotalPlayerScore();
         int a=0;
         for (int i=1;i<allScore.length;i++){
@@ -190,6 +193,13 @@ public class OutcomeAnalysis {
         }
         System.out.println("\033[43mThe number of players who got the score above 60 is \033[0m"+a);
 
+    }
+
+    public void displayTime(){
+        LocalDateTime now=LocalDateTime.now();
+        DateTimeFormatter dtf =DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String nowStr=dtf.format(now);
+        System.out.println(nowStr);
     }
 
     }
