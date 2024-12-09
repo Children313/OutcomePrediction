@@ -131,34 +131,90 @@ public class OutcomeAnalysis {
         }
 
         public void addInformation() {
+            player=new BasketballPlayer();
             System.out.print("Enter Name : ");
             String playerName = input.nextLine();
+            player.setName(playerName);
             System.out.print("Enter Speed(dribbling across the court)m/s : ");
             Double playerSpeed= input.nextDouble();
-            if (playerSpeed>10||playerSpeed<0){
-                System.out.println("Please enter reasonable speed again which should be between 0 and 10 m/s");
-                playerSpeed = input.nextDouble();
-            }
+            judgeSpeed(playerSpeed);
             System.out.print("Enter Height(cm) : ");
             Double playerHeight=input.nextDouble();
-            if(playerHeight>300||playerHeight<100){
-                System.out.println("Please enter reasonable height again which should be between 100 and 300 cm");
-                playerHeight= input.nextDouble();
-            }
+            judgeHeight(playerHeight);
             System.out.print("Enter Shooting_ability(outstanding,excellent,good,normal) : ");
             String playerShooting_ability=input.next();
+            judgeShootingAbility(playerShooting_ability);
             System.out.print("Enter Breakthrough_ability(outstanding,excellent,good,normal) :");
             String playerBreakthrough_ability=input.next();
+            judgeBreakthroughAbility(playerBreakthrough_ability);
             System.out.print("Enter Assisting_ability(outstanding,excellent,good,normal) :");
             String playerAssisting_ability=input.next();
-
-            player = new BasketballPlayer(playerName,playerSpeed,playerHeight,playerShooting_ability,playerBreakthrough_ability,playerAssisting_ability) ;
+            judgeAssistingAbility(playerAssisting_ability);
             float playerscore = assignment(player.getShooting_ability(), player.getBreakthrough_ability(), player.getAssisting_ability()   );
             System.out.println("\033[33mThe score of the player is\033[0m "+playerscore);
             mark=new BasketballPlayer(playerscore);
         }
 
-       public void printInformation() {
+    private void judgeSpeed(Double playerSpeed){
+        if (playerSpeed>10||playerSpeed<0){
+            System.out.println("Please enter reasonable speed again which should be between 0 and 10 m/s");
+            playerSpeed = input.nextDouble();
+            judgeSpeed(playerSpeed);
+        }
+        else{
+            System.out.println("Add successfully");
+            player.setSpeed(playerSpeed);
+        }
+    }
+
+    private void judgeHeight(Double playerHeight){
+        if(playerHeight>300||playerHeight<100){
+            System.out.println("Please enter reasonable height again which should be between 100 and 300 cm");
+            playerHeight= input.nextDouble();
+            judgeHeight(playerHeight);
+        }
+        else{
+            System.out.println("Add successfully");
+            player.setHeight(playerHeight);
+        }
+    }
+
+    private void judgeShootingAbility(String playerShooting_ability) {
+        if (!playerShooting_ability.equals("outstanding")&&!playerShooting_ability.equals("excellent")&&!playerShooting_ability.equals("good")&&!playerShooting_ability.equals("normal")){
+            System.out.println("Please type reasonable words");
+            playerShooting_ability = input.next();
+            judgeShootingAbility(playerShooting_ability);
+        }
+        else{
+            System.out.println("Add successfully");
+            player.setShooting_ability(playerShooting_ability);
+        }
+    }
+
+
+    private void judgeBreakthroughAbility(String playerBreakthrough_ability) {
+        if (!playerBreakthrough_ability.equals("outstanding")&&!playerBreakthrough_ability.equals("excellent")&&!playerBreakthrough_ability.equals("good")&&!playerBreakthrough_ability.equals("normal")){
+            System.out.println("Please type reasonable words");
+            playerBreakthrough_ability = input.next();
+            judgeShootingAbility(playerBreakthrough_ability);
+        }
+        else{
+            System.out.println("Add successfully");
+            player.setBreakthrough_ability(playerBreakthrough_ability);
+        }
+    }
+    private void judgeAssistingAbility(String playerAssisting_ability) {
+        if (!playerAssisting_ability.equals("outstanding")&&!playerAssisting_ability.equals("excellent")&&!playerAssisting_ability.equals("good")&&!playerAssisting_ability.equals("normal")){
+            System.out.println("Please type reasonable words");
+            playerAssisting_ability = input.next();
+            judgeShootingAbility(playerAssisting_ability);
+        }
+        else{
+            System.out.println("Add successfully");
+            player.setAssisting_ability(playerAssisting_ability);
+        }
+    }
+    public void printInformation() {
             System.out.println(player);
 
         }
