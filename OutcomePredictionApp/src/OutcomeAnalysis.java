@@ -1,3 +1,6 @@
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -51,7 +54,7 @@ public class OutcomeAnalysis {
                       case 1->prediction();
                       case 2->displayPersonalScore();
                       case 3->findHighestScore();
-                      case 4-> tellNumbers();
+                      case 4-> tellNumbersAbove60();
                       default-> System.out.println("Invalid option entered:"+option);
                   }
                   System.out.println("\nPress enter key to continue...");
@@ -95,6 +98,7 @@ public class OutcomeAnalysis {
 
 
         }
+        @Test
         public void prediction(){
             if (player.getTeam1totalscore()<player.getTeam2totalscore()){
                 System.out.println("\033[41mThe first team is more likely to win\033[0m");
@@ -106,6 +110,7 @@ public class OutcomeAnalysis {
                 System.out.println("\033[41mThe second team is more likely to win\033[0m");
             }
         }
+
 
         public void displayPersonalScore(){
         float arr4[]=player.getTotalPlayerScore();
@@ -136,6 +141,7 @@ public class OutcomeAnalysis {
             System.out.println("\033[42mThe highest score of all the player is\033[0m "+ highestscore);
         }
 
+
         public void addInformation() {
             player=new BasketballPlayer();
             System.out.print("Enter Name : ");
@@ -161,7 +167,8 @@ public class OutcomeAnalysis {
             mark=new BasketballPlayer(playerscore);
         }
 
-    private void judgeSpeed(Double playerSpeed){
+
+        private void judgeSpeed(Double playerSpeed){
         if (playerSpeed>10||playerSpeed<0){
             System.out.println("Please enter reasonable speed again which should be between 0 and 10 m/s");
             playerSpeed = input.nextDouble();
@@ -224,7 +231,8 @@ public class OutcomeAnalysis {
             System.out.println(player);
 
         }
-       public float assignment(String shootingAbility,String breakthroughAbility,String assistingAbility){
+
+        public float assignment(String shootingAbility,String breakthroughAbility,String assistingAbility){
             String[]abilities=new String[3];
             abilities[0]=shootingAbility;
             abilities[1]=breakthroughAbility;
@@ -244,8 +252,8 @@ public class OutcomeAnalysis {
             }
             return (score[0]+score[1]+score[2])/3;
        }
-
-        public void tellNumbers(){
+        @Test
+        public void tellNumbersAbove60(){
         float[] allScore=player.getTotalPlayerScore();
         int a=0;
         for (int i=1;i<allScore.length;i++){
@@ -254,6 +262,7 @@ public class OutcomeAnalysis {
             }
         }
         System.out.println("\033[43mThe number of players who got the score above 60 is \033[0m"+a);
+        Assertions.assertNotEquals(-1,a);
 
     }
 
