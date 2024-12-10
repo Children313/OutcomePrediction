@@ -4,9 +4,9 @@ public class BasketballPlayer {
 private String name="Nick";
 private double speed=6.0;//运球跨场速度
 private double height=190.0;
-private String shooting_ability="outstanding";//outstanding,excellent,good,normal
-private String breakthrough_ability="outstanding";
-private String assisting_ability="outstanding";
+private String shooting_ability="good";//outstanding,excellent,good,normal
+private String breakthrough_ability="good";
+private String assisting_ability="good";
 private float score;
 private float[] team1PlayerScore;
 private float[] team2PlayerScore;
@@ -145,7 +145,7 @@ private float team2totalscore;
     }
     public static void setup() {
         System.out.println("///////////////////////////////////////");
-        System.out.println("\033[43mOutcome Analysis\033[0m");
+        System.out.println("\033[46mOutcome Analysis\033[0m");
         System.out.println("///////////////////////////////////////");
         System.out.println();
         System.out.println();

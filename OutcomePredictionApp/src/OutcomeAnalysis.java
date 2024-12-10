@@ -27,13 +27,19 @@ public class OutcomeAnalysis {
     }
         private int mainMenu(){
             System.out.println("""
-                    OutcomeAnalysis Menu
-                    --------------------
-                    1)Team win probability prediction
-                    2)Dislay all the players' scores from low to high
-                    3)Find the highest score of all the players
-                    4)Tell the number of players who got the score above 60
-                    0)Exit
+                    ________________________________________________________________________
+                    |                      \033[46mOutcomeAnalysis Menu\033[0m                            |
+                    |----------------------------------------------------------------------|
+                    |\033[36m1)Team win probability prediction\033[0m                                     |
+                    |----------------------------------------------------------------------|
+                    |\033[36m2)Dislay all the players' scores from low to high\033[0m                     |
+                    |----------------------------------------------------------------------|
+                    |\033[36m3)Find the highest score of all the players\033[0m                           |
+                    |----------------------------------------------------------------------|
+                    |\033[36m4)Tell the number of players who got the score above 60\033[0m               |
+                    |----------------------------------------------------------------------|
+                    |\033[36m0)Exit\033[0m                                                                |
+                    |----------------------------------------------------------------------|
                     ==>>""");
             int option=input.nextInt();
             return option;
@@ -150,7 +156,7 @@ public class OutcomeAnalysis {
             System.out.print("Enter Assisting_ability(outstanding,excellent,good,normal) :");
             String playerAssisting_ability=input.next();
             judgeAssistingAbility(playerAssisting_ability);
-            float playerscore = assignment(player.getShooting_ability(), player.getBreakthrough_ability(), player.getAssisting_ability()   );
+            float playerscore = assignment(player.getShooting_ability(),player.getBreakthrough_ability(),player.getAssisting_ability() );
             System.out.println("\033[33mThe score of the player is\033[0m "+playerscore);
             mark=new BasketballPlayer(playerscore);
         }
