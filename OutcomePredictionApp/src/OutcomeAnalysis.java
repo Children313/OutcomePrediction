@@ -25,7 +25,6 @@ public class OutcomeAnalysis {
     }
     public OutcomeAnalysis(int a){
         displayTime();
-        List<BasketballPlayer>players=new ArrayList<>();
         assessment();
         runMenu();
     }
@@ -60,7 +59,7 @@ public class OutcomeAnalysis {
                       case 1->prediction();
                       case 2->displayPersonalScore();
                       case 3->findHighestScore();
-                      case 4-> tellNumbersAbove60();
+                      case 4->tellNumbersAbove60();
                       case 5->printPlayerData();
                       default-> System.out.println("Invalid option entered:"+option);
                   }
@@ -105,7 +104,7 @@ public class OutcomeAnalysis {
 
 
         }
-        @Test
+
         public void prediction(){
             if (player.getTeam1totalscore()<player.getTeam2totalscore()){
                 System.out.println("\033[41mThe first team is more likely to win\033[0m");
@@ -290,13 +289,14 @@ public class OutcomeAnalysis {
     }
 
     public void printPlayerData(){
+        System.out.println("Please type the plater's name you want to know");
         String playername=input.nextLine();
         boolean test=false;
         for(int i=0;i<6;i++){
-            if(playername.equals(players.get(i).getName()) ){
+            if(playername.equalsIgnoreCase(players.get(i).getName()) ){
                 System.out.println(players.get(i).toString());
                 test=true;
-            }
+            }}
             if(!test){
                 System.out.println("Please input the playername which is included in the teams");
                 printPlayerData();
@@ -307,7 +307,7 @@ public class OutcomeAnalysis {
     }
 
 
-    }
+
 
 
 
