@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class OutcomeAnalysis {
@@ -12,6 +14,7 @@ public class OutcomeAnalysis {
         static BasketballPlayer team1PersonalScore;
         static BasketballPlayer team2PersonalScore;
         Scanner input = new Scanner(System.in);
+        List<BasketballPlayer>players=new ArrayList<>();
 
     public static void main(String[] args) {
         File file=new File("C:\\Users\\鹿鸣\\Documents\\GitHub\\OutcomePrediction\\OutcomePredictionApp\\src\\Introduction of the whole OutcomeAnalysis team project");
@@ -22,6 +25,7 @@ public class OutcomeAnalysis {
     }
     public OutcomeAnalysis(int a){
         displayTime();
+        List<BasketballPlayer>players=new ArrayList<>();
         assessment();
         runMenu();
     }
@@ -41,6 +45,8 @@ public class OutcomeAnalysis {
                     |----------------------------------------------------------------------|
                     |\033[36m4)Tell the number of players who got the score above 60\033[0m               |
                     |----------------------------------------------------------------------|
+                    |\033[36m5)Print datas of the player you want to know (please type playername)\033[0m |
+                    |----------------------------------------------------------------------|
                     |\033[36m0)Exit\033[0m                                                                |
                     |----------------------------------------------------------------------|
                     ==>>""");
@@ -55,6 +61,7 @@ public class OutcomeAnalysis {
                       case 2->displayPersonalScore();
                       case 3->findHighestScore();
                       case 4-> tellNumbersAbove60();
+                      case 5->printPlayerData();
                       default-> System.out.println("Invalid option entered:"+option);
                   }
                   System.out.println("\nPress enter key to continue...");
@@ -144,6 +151,8 @@ public class OutcomeAnalysis {
 
         public void addInformation() {
             player=new BasketballPlayer();
+
+            BasketballPlayer basketballplayer=new BasketballPlayer();
             System.out.print("Enter Name : ");
             String playerName = input.nextLine();
             player.setName(playerName);
@@ -165,6 +174,13 @@ public class OutcomeAnalysis {
             float playerscore = assignment(player.getShooting_ability(),player.getBreakthrough_ability(),player.getAssisting_ability() );
             System.out.println("\033[33mThe score of the player is\033[0m "+playerscore);
             mark=new BasketballPlayer(playerscore);
+            basketballplayer.setName(player.getName());
+            basketballplayer.setHeight(player.getHeight());
+            basketballplayer.setSpeed(player.getSpeed());
+            basketballplayer.setShooting_ability(player.getShooting_ability() );
+            basketballplayer.setBreakthrough_ability(playerBreakthrough_ability);
+            basketballplayer.setAssisting_ability(player.getAssisting_ability());
+            players.add(basketballplayer);
         }
 
 
@@ -273,6 +289,25 @@ public class OutcomeAnalysis {
         System.out.println(nowStr);
     }
 
+    public void printPlayerData(){
+        String playername=input.nextLine();
+        boolean test=false;
+        for(int i=0;i<6;i++){
+            if(playername.equals(players.get(i).getName()) ){
+                System.out.println(players.get(i).toString());
+                test=true;
+            }
+            if(!test){
+                System.out.println("Please input the playername which is included in the teams");
+                printPlayerData();
+            }
+
+            }
+
     }
+
+
+    }
+
 
 
