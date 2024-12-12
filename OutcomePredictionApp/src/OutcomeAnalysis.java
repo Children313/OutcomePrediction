@@ -14,7 +14,7 @@ public class OutcomeAnalysis {
         static BasketballPlayer team1PersonalScore;
         static BasketballPlayer team2PersonalScore;
         Scanner input = new Scanner(System.in);
-        List<BasketballPlayer>players=new ArrayList<>();
+        static List<BasketballPlayer>players=new ArrayList<>();
 
     public static void main(String[] args) {
         File file=new File("C:\\Users\\鹿鸣\\Documents\\GitHub\\OutcomePrediction\\OutcomePredictionApp\\src\\Introduction of the whole OutcomeAnalysis team project");
@@ -289,7 +289,8 @@ public class OutcomeAnalysis {
     }
 
     public void printPlayerData(){
-        System.out.println("Please type the plater's name you want to know");
+        System.out.println("Please type the player's name you want to know");
+        input.nextLine();
         String playername=input.nextLine();
         boolean test=false;
         for(int i=0;i<6;i++){
